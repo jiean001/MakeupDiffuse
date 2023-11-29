@@ -4,7 +4,7 @@ Code for our paper "MakeupDiffuse: A Double Image Controlled Diffusion Model for
 
 ## framework
 
-![](res\01-training phase.jpg)
+![](./res/01-training phase.jpg)
 
 The network framework of the MakeupDiffuse model. The source $x$ and reference image $y$ first pass through the Teacher Module (T) to obtain a preliminary makeup transfer image $x_p$, then diffuse it and obtain latent image $x_t$. Finally, we input the diffused latent image $x_t$ and the content and style conditions($c_s$, $c_r$) extracted by the Source Face Encoder and Reference Makeup Encoder($E_S$, $E_R$) into the Controllable Stable Diffusion Module(Controllable D) for a precise and controllable generation.
 
