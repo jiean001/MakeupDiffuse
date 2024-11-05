@@ -1,14 +1,16 @@
 # MakeupDiffuse
+****
 
 Code for our paper "MakeupDiffuse: A Double Image Controlled Diffusion Model for Exquisite Makeup Transfer"
 
 ## framework
-
+****
 ![](./res/01-training-phase.jpg)
 
 The network framework of the MakeupDiffuse model. The source $x$ and reference image $y$ first pass through the Teacher Module (T) to obtain a preliminary makeup transfer image $x_p$, then diffuse it and obtain latent image $x_t$. Finally, we input the diffused latent image $x_t$ and the content and style conditions($c_s$, $c_r$) extracted by the Source Face Encoder and Reference Makeup Encoder($E_S$, $E_R$) into the Controllable Stable Diffusion Module(Controllable D) for a precise and controllable generation.
 
 ## Some Results
+****
 
 ![](./res/05_exp_comp.png)
 
@@ -26,8 +28,34 @@ Interpolated makeup transfer. Our proposed MakeupDiffuse could achieve smooth ma
 
 The influence of different teacher modules and ablation study by removing this module on the experimental results. Compared with the artifacts of the teacher network, inaccurate colors, fine details, and masked faces, our model results are more accurate and natural. After removing the teacher network, although the background and face can be generated with a relatively correct structure and has a little makeup, overall makeup information is lacking.
 
-## More Results
+## How to run?
+****
 
+### Step 1. train
 
+`python ./runs/train.py`
 
-The release code will be announced soon...
+### Step 2. Test
+
+`python ./runs/test.py`
+
+### Citation
+
+****
+
+```
+@article{lu2024makeupdiffuse,
+  title={MakeupDiffuse: a double image-controlled diffusion model for exquisite makeup transfer},
+  author={Lu, Xiongbo and Liu, Feng and Rong, Yi and Chen, Yaxiong and Xiong, Shengwu},
+  journal={The Visual Computer},
+  pages={1--17},
+  year={2024},
+  publisher={Springer}
+}
+```
+
+## Acknowledge
+****
+Some of the codes are built upon [Elegant](https://github.com/Chenyu-Yang-2000/EleGANt), [SCGAN](https://github.com/makeuptransfer/SCGAN) and [ControlNet](https://github.com/lllyasviel/ControlNet).
+
+You are encouraged to submit issues, contribute pull requests, and send e-mail(luxiongbo@whut.edu.cn).
